@@ -1,0 +1,130 @@
+ext {
+
+    android = [
+            compileSdkVersion      : 25,
+            buildToolsVersion      : "25.0.2",
+            applicationId          : "com.will.weiyue",
+            minSdkVersion          : 19,
+            targetSdkVersion       : 25,
+            versionCode            : 1,
+            versionName            : "1.0"
+    ]
+
+    dependVersion = [
+            support: "25.3.1"
+    ]
+
+    dependencies = [
+
+            //android-support
+            "support-v4"            : "com.android.support:support-v4:${dependVersion.support}",
+            "appcompat-v7"          : "com.android.support:appcompat-v7:${dependVersion.support}",
+            "design"                : "com.android.support:design:${dependVersion.support}",
+            "recyclerview"          : "com.android.support:recyclerview-v7:${dependVersion.support}",
+            "cardview"              : "com.android.support:cardview-v7:${dependVersion.support}",
+
+
+            //http
+            //Square公司出品的针对于Android和Java的类型安全的Http客户端，网络服务基于OkHttp
+            "retrofit2"             : "com.squareup.retrofit2:retrofit:2.1.0",
+            //Retrofit有时需要直接返回【String】，需要引入
+            "converter-scalars"     : "com.squareup.retrofit2:converter-scalars:2.1.0",
+            //Retrofit可以直接返回【对象类型】，所以我们要引入Google的Gson和对应的转换器
+            "converter-gson"        : "com.squareup.retrofit2:converter-gson:2.1.0",
+            //适配Rxjava2
+            "adapter-rxjava2"       : "com.squareup.retrofit2:adapter-rxjava2:2.2.0",
+
+            //RxJava2作为异步传输队列，将Retrofit2从网络获取的信息，从IO线程（网络请求）发送到UI线程（主线程）
+
+            //1、Retrofit2作为Observable（被观察者/发送方）
+            //2、提供一个在主线程运行的Observer（观察者/接收方）
+            //3、通过内部接口连接注册，
+
+
+            //httpcache
+            //基于 Retrofit的Reactive缓存库，可用于Android 和Java。能够将你的缓存成需求转成一个接口
+            "rxCache"               : "com.github.VictorAlbertos.RxCache:runtime:1.8.0-2.x",
+            "Jolyglot-gson"         : "com.github.VictorAlbertos.Jolyglot:gson:0.0.3",
+
+
+            //rxjava
+            //一个在 Java VM 上使用可观测的序列来组成异步的、基于事件的程序的库
+            "rxjava"                : "io.reactivex.rxjava2:rxjava:2.0.6",
+            //RxAndroid是RxJava在Android上的一个扩展，大牛JakeWharton的项目。据说和Retorfit、OkHttp组合起来使用，效果不是一般的好。而且用它似乎可以完全替代eventBus和OTTO
+            "rxandroid"             : "io.reactivex.rxjava2:rxandroid:2.0.1",
+            //在Rxbinding的基础上可以很方便的实现很多功能，例如:快点点击两次只取一次、长按事件监听、编辑框快速输入时候不搜索等等功能。 具体栗子看操作符
+            "rxbinding2"            : "com.jakewharton.rxbinding2:rxbinding:2.0.0",
+            //该项目是为了防止RxJava中subscription导致内存泄漏而诞生的，核心思想是通过监听Activity、Fragment的生命周期，来自动断开subscription以防止内存泄漏。
+            rxlifecycle2            : "com.trello.rxlifecycle2:rxlifecycle:2.1.0",
+            rxlifecomponents        : "com.trello.rxlifecycle2:rxlifecycle-components:2.1.0",
+
+
+            //dagger2
+            "dagger"                : "com.google.dagger:dagger:2.7",
+            "dagger-compiler"       : "com.google.dagger:dagger-compiler:2.7",
+
+
+            //ui
+            "constraint-layout"     : "com.android.support.constraint:constraint-layout:1.0.2",
+            //快速开发出各种嵌套设计的Fragment App
+            //实时查看Fragment的(包括嵌套Fragment)栈视图的对话框和Log，方便调试
+            //增加启动模式、startForResult等类似Activity方法
+            //类似Android事件分发机制的Fragment回退方法：onBackPressedSupport()，轻松为每个Fragment实现Back按键事件
+            //提供靠谱的 Fragment转场动画 的解决方案
+            //更强的兼容性, 解决多点触控、重叠等问题
+            "fragmentation"         : "me.yokeyword:fragmentation:1.0.0",
+            "butterknife"           : "com.jakewharton:butterknife:8.8.1",
+            "butterknife-compiler"  : "com.jakewharton:butterknife-compiler:8.8.1",
+            //UltraPtr下拉刷新
+            "ultra-ptr"             : "in.srain.cube:ultra-ptr:1.0.11",
+            //创建底部Tab
+            "bottom-bar"            : "com.roughike:bottom-bar:2.3.1",
+            "BaseAdapterHelper"     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.24",
+            "glide"                 : "com.github.bumptech.glide:glide:4.0.0-RC1",
+            "banner"                : "com.youth.banner:banner:1.4.9",
+            "viewanimator"          : "com.github.florent37:viewanimator:1.0.5",
+            "tablayout"             : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
+            "FlycoDialog"           : "com.flyco.dialog:FlycoDialog_Lib:1.3.2@aar",
+            //流式操作
+            //低侵入性
+            //支持Html和Markdown格式文本
+            //支持图片点击和长按事件
+            //链接点击事件和长按事件
+            //支持设置加载中和加载错误时的图片
+            //支持自定义超链接的点击回调
+            //支持修正图片宽高
+            //支持GIF图片
+            //支持Base64编码
+            //自持自定义图片加载器
+            //支持内存和磁盘双缓存
+            "richtext"              : "com.zzhoujay.richtext:richtext:2.5.2",
+            "transformations"       : "jp.wasabeef:glide-transformations:2.0.2",
+            //支持放缩超出边界，多点触控和双击事件
+            //滚动和滑动
+            //和ViewPager等能完美兼容
+            //矩阵变化等有回调，方便前台其他展示的改变
+            //单击，长按都有回调提醒
+            "PhotoView"             : "com.github.chrisbanes:PhotoView:2.1.2",
+            //一个真正实现Android的全屏功能，立志成为Android平台使用最广泛的视频播放控件
+            "videoplayer"           : "fm.jiecao:jiecaovideoplayer:5.7",
+            //Airbnb开源的一个支持 Android、iOS 以及 ReactNative，利用json文件的方式快速实现动画效果的库
+            "lottie"                : "com.airbnb.android:lottie:2.1.0",
+            "progressbar"           : "me.zhanghai.android.materialprogressbar:library:1.4.1",
+            "transitionhelper"      : "me.immortalz:transitionhelper:1.0.6",
+            //类似 iOS 带弹簧效果的左右滑动控件，可作为 AbsListView 和 RecyclerView 的 item
+            "swipebacklayout"       : "cn.bingoogolapple:bga-swipebacklayout:1.1.0@aar",
+            //其主要作用就是可以展示gif格式的图片及动画，还可以对动画进行监听操作
+            "gif-drawable"          : "pl.droidsonroids.gif:android-gif-drawable:1.2.8",
+
+            //Event
+            "androideventbus"       : "org.simple:androideventbus:1.0.5.1",
+
+            //db
+            "litepal"               : "org.litepal.android:core:1.5.1",
+            "retrolambda"           : "me.tatarka:gradle-retrolambda:3.7.0",
+
+    ]
+
+
+
+}
